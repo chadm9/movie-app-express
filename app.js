@@ -10,6 +10,15 @@ var users = require('./routes/users');
 
 var app = express();
 
+//make req.session available
+
+var expressParser = require('express-session');
+app.use(expressParser({
+    secret: 'dc4life',
+    resave: false,
+    saveUninitialized: true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
